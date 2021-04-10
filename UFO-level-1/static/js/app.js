@@ -10,6 +10,21 @@ var $tbody = d3.select("tbody");
 // Select the button
 var button = d3.select("#filter-btn");
 
-// Select the form
-var form = d3.select("#form");
+// Select the input element and get the raw HTML node
+var userinput = d3.select("#datetime");
+
+// Data columns
+var columns = ["datetime", "city", "state", "country", "shape", "durationMinutes", "comments"]
+
+
+// Use d3 to appends table and add new rows of data for each UFO sighting
+var indata = (dataInput) => {
+    dataInput.forEach(ufosightings => {
+        var row = $tbody.append("tr");
+        columns.forEach(column => row.append("td").text(ufosightings[column])
+        )
+    });
+}
+
+indata(tableData);
 
