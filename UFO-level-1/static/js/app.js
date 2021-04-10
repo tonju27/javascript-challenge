@@ -28,3 +28,10 @@ var indata = (dataInput) => {
 
 indata(tableData);
 
+// Create event handlers for button
+button.on("click", () => {
+
+    // Prevent the page from refreshing
+        d3.event.preventDefault();
+      
+}
