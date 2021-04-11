@@ -17,8 +17,8 @@ var userinput = d3.select("#datetime");
 var columns = ["datetime", "city", "state", "country", "shape", "durationMinutes", "comments"]
 
 
-// Use d3 to appends table and add new rows of data for each UFO sighting
-var indata = (dataInput) => {
+// Use d3 to appends table with new rows of data for each UFO sighting
+var ufodata = (dataInput) => {
     dataInput.forEach(ufosightings => {
         var row = $tbody.append("tr");
         columns.forEach(column => row.append("td").text(ufosightings[column])
@@ -26,12 +26,43 @@ var indata = (dataInput) => {
     });
 }
 
-indata(tableData);
+
+ufodata(tableData);
+
 
 // Create event handlers for button
-button.on("click", () => {
+// button.on("click", () => {
 
+    button.on("click", runEnter);
+
+    function runEnter() {
     // Prevent the page from refreshing
         d3.event.preventDefault();
       
-}
+        
+    // Get the value property of the input element and remove space at begining and end of input
+        var inputdate = userinput.property("value").trim();
+        
+        console.log(inputdate);
+            
+        var filterdate = tableData.filter(tableData => tableData.datetime === inputdate);
+        
+        console.log(filterdate);
+
+        $tbody.html("");
+    
+        let response = {
+            filterDate
+        }
+    
+    
+        if(response.filterdate.length !== 0) {
+            data(filterdate);
+        }
+    
+        // Top if only works for filtering the date
+        
+            else {
+                $tbody.append("tr").append("td").text("No Sightings Here...Move On...");
+            }
+    }
