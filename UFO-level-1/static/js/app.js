@@ -10,59 +10,50 @@ var $tbody = d3.select("tbody");
 // Select the button
 var button = d3.select("#filter-btn");
 
-// Select the input element and get the raw HTML node
-// var userinput = d3.select("#datetime");
-
 // Data columns
 var columns = ["datetime", "city", "state", "country", "shape", "durationMinutes", "comments"]
 
 
 // Use d3 to appends table with new rows of data for each UFO sighting
-var ufodata = (dataInput) => {
-    dataInput.forEach(ufosightings => {
+var ufodata = (datainput) => {
+    datainput.forEach(ufosightings => {
         var row = $tbody.append("tr");
-        columns.forEach(column => row.append("td").text(ufosightings[column])
-        )
+        columns.forEach(column => row.append("td").text(ufosightings[column]));
     });
-
     }
     
-    // ufodata(tableData);
+    ufodata(tableData);
 
 
-    // Create event handlers for button
-    button.on("click", function() {
+        // Create event handlers for button
+        button.on("click", runEnter);
+
+        function runEnter() {
+        
         // Prevent the page from refreshing
         d3.event.preventDefault();
       
-        console.log("Tony");
-
         // Select the input element and get the raw HTML node
         var userinput = d3.select("#datetime");
 
         // Get the value property of the input element
-        var inputvalue = userinput.property("value");
+        var inputvalue = userinput.property("value").trim();
         
-        console.log(inputvalue);
-            
-      
         var filterdata = tableData.filter(tableData => tableData.datetime === inputvalue);
 
-        console.log(filterdata);
-
-        console.log("Tony");
-
+        // remove any data from the list
         $tbody.html("");
 
-          
         if(filterdata.length !== 0) {
-            ufodata(filterdata);
+           ufodata(filterdata);
+
         }
     
         else {
                 // ufodata(tableData);
                 $tbody.append("tr").append("td").text("No Sightings");
             }
-    });
+    }
 
+    
 
