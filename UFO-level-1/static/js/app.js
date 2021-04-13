@@ -11,7 +11,7 @@ var $tbody = d3.select("tbody");
 var button = d3.select("#filter-btn");
 
 // Select the input element and get the raw HTML node
-var userinput = d3.select("#datetime");
+// var userinput = d3.select("#datetime");
 
 // Data columns
 var columns = ["datetime", "city", "state", "country", "shape", "durationMinutes", "comments"]
@@ -24,45 +24,45 @@ var ufodata = (dataInput) => {
         columns.forEach(column => row.append("td").text(ufosightings[column])
         )
     });
-}
+
+    }
+    
+    // ufodata(tableData);
 
 
-ufodata(tableData);
-
-
-// Create event handlers for button
-// button.on("click", () => {
-
-    button.on("click", runEnter);
-
-    function runEnter() {
-    // Prevent the page from refreshing
+    // Create event handlers for button
+    button.on("click", function() {
+        // Prevent the page from refreshing
         d3.event.preventDefault();
       
+        console.log("Tony");
+
+        // Select the input element and get the raw HTML node
+        var userinput = d3.select("#datetime");
+
+        // Get the value property of the input element
+        var inputvalue = userinput.property("value");
         
-    // Get the value property of the input element and remove space at begining and end of input
-        var inputdate = userinput.property("value").trim();
-        
-        console.log(inputdate);
+        console.log(inputvalue);
             
-        var filterdate = tableData.filter(tableData => tableData.datetime === inputdate);
-        
-        console.log(filterdate);
+      
+        var filterdata = tableData.filter(tableData => tableData.datetime === inputvalue);
+
+        console.log(filterdata);
+
+        console.log("Tony");
 
         $tbody.html("");
-    
-        let response = {
-            filterDate
+
+          
+        if(filterdata.length !== 0) {
+            ufodata(filterdata);
         }
     
-    
-        if(response.filterdate.length !== 0) {
-            data(filterdate);
-        }
-    
-        // Top if only works for filtering the date
-        
-            else {
-                $tbody.append("tr").append("td").text("No Sightings Here...Move On...");
+        else {
+                // ufodata(tableData);
+                $tbody.append("tr").append("td").text("No Sightings");
             }
-    }
+    });
+
+
