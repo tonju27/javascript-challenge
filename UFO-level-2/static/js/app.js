@@ -33,18 +33,39 @@ var ufodata = (datainput) => {
         // Prevent the page from refreshing
         d3.event.preventDefault();
       
-        // Select the input element and get the raw HTML node
-        var userinput = d3.select("#datetime");
+        // Select the input elements and get the raw HTML node
+        var userdate = d3.select("#datetime");
+        var usercity = d3.select("#city");
+        var userstate = d3.select("#state");
+        var usercountry = d3.select("#country");
+        var usershape = d3.select("#shape");
+
 
         // Get the value property of the input element
-        var inputvalue = userinput.property("value").trim();
+        var inputdate = userdate.property("value").trim();
+        var inputcity = usercity.property("value").trim();
+        var inputstate = userstate.property("value").trim();
+        var inputcountry = usercountry.property("value").trim();
+        var inputshape = usershape.property("value").trim();
         
-        var filterdata = tableData.filter(tableData => tableData.datetime === inputvalue);
+        if      
+        
+        
+        
+        
+
+
+
+        var filterdates = tableData.filter(tableData => tableData.datetime === inputdate);
+        var filterCities = tableData.filter(tableData => tableData.city === inputcity);
+        var filterstates = tableData.filter(tableData => tableData.state === inputstate);
+        var filtercountries = tableData.filter(tableData => tableData.country === inputcountry);
+        var filtershapes = tableData.filter(tableData => tableData.shape === inputshape);
 
         // remove any data from the list
         $tbody.html("");
 
-        if(filterdata.length !== 0) {
+        if(filterdates.length !== 0 ) {
            ufodata(filterdata);
 
         }
