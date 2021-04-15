@@ -93,25 +93,30 @@ var ufodata = (datainput) => {
         
         
         
-        var filterdates = tableData.filter(tableData => tableData.datetime === inputdate);
-
-
         
-        // var filterstates = tableData.filter(tableData => tableData.state === inputstate);
-        // var filtercountries = tableData.filter(tableData => tableData.country === inputcountry);
-        // var filtershapes = tableData.filter(tableData => tableData.shape === inputshape);
+        
+        
+        
+
+
+
+        var filterdates = tableData.filter(tableData => tableData.datetime === inputdate);
+        var filterCities = tableData.filter(tableData => tableData.city === inputcity);
+        var filterstates = tableData.filter(tableData => tableData.state === inputstate);
+        var filtercountries = tableData.filter(tableData => tableData.country === inputcountry);
+        var filtershapes = tableData.filter(tableData => tableData.shape === inputshape);
 
         // remove any data from the list
         $tbody.html("");
 
         if(filterdates.length !== 0 ) {
-            var combinedfilter = filterdates.filter(filterdates => filterdates.city === inputcity);
 
-            // if(combinedfilter.length !== 0 )
 
-            $tbody.html("");
 
-           ufodata(combinedfilter);
+
+
+            
+           ufodata(filterdates);
 
         }
     
