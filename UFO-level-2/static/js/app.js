@@ -96,7 +96,8 @@ var ufodata = (datainput) => {
                     // call function
                     ufodata(combinedfilter);
                 }   
-            
+        
+        // couples
         if (inputcountry.length !== 0
             || inputshape.length !== 0) {
             
@@ -109,6 +110,125 @@ var ufodata = (datainput) => {
                     // call function
                     ufodata(combinedfilter);
                 }   
+
+        if (inputstate.length !== 0
+            || inputshape.length !== 0) {
+            
+                var combinedfilter = tableData.filter(tableData => tableData.state === inputstate 
+                    && tableData.shape === inputshape)
+                    
+                    // remove any data from the list
+                    $tbody.html("");
+
+                    // call function
+                    ufodata(combinedfilter);
+                }            
+
+        if (inputcity.length !== 0
+            || inputshape.length !== 0) {
+            
+                var combinedfilter = tableData.filter(tableData => tableData.city === inputcity 
+                    && tableData.shape === inputshape)
+                    
+                    // remove any data from the list
+                    $tbody.html("");
+
+                    // call function
+                    ufodata(combinedfilter);
+                }             
+
+        if (inputdate.length !== 0
+            || inputshape.length !== 0) {
+            
+                var combinedfilter = tableData.filter(tableData => tableData.datetime === inputdate 
+                    && tableData.shape === inputshape)
+                    
+                    // remove any data from the list
+                    $tbody.html("");
+
+                    // call function
+                    ufodata(combinedfilter);
+                }
+
+        if (inputcity.length !== 0
+            || inputdate.length !== 0) {
+            
+                var combinedfilter = tableData.filter(tableData => tableData.city === inputcity 
+                    && tableData.datetime === inputdate)
+                    
+                    // remove any data from the list
+                    $tbody.html("");
+
+                    // call function
+                    ufodata(combinedfilter);
+                }
+
+        if (inputcity.length !== 0
+            || inputstate.length !== 0) {
+            
+                var combinedfilter = tableData.filter(tableData => tableData.city === inputcity 
+                    && tableData.state === inputstate)
+                    
+                    // remove any data from the list
+                    $tbody.html("");
+
+                    // call function
+                    ufodata(combinedfilter);
+                }
+
+        if (inputcity.length !== 0
+            || inputcountry.length !== 0) {
+            
+                var combinedfilter = tableData.filter(tableData => tableData.city === inputcity 
+                    && tableData.country === inputcountry)
+                    
+                    // remove any data from the list
+                    $tbody.html("");
+
+                    // call function
+                    ufodata(combinedfilter);
+                }
+
+        if (inputcountry.length !== 0
+            || inputdate.length !== 0) {
+            
+                var combinedfilter = tableData.filter(tableData => tableData.country === inputcountry 
+                    && tableData.datetime === inputdate)
+                    
+                    // remove any data from the list
+                    $tbody.html("");
+
+                    // call function
+                    ufodata(combinedfilter);
+                }
+
+        if (inputstate.length !== 0
+            || inputdate.length !== 0) {
+            
+                var combinedfilter = tableData.filter(tableData => tableData.state === inputstate 
+                    && tableData.datetime === inputdate)
+                    
+                    // remove any data from the list
+                    $tbody.html("");
+
+                    // call function
+                    ufodata(combinedfilter);
+                }
+
+        if (inputstate.length !== 0
+            || inputcountry.length !== 0) {
+            
+                var combinedfilter = tableData.filter(tableData => tableData.country === inputcountry 
+                    && tableData.state === inputstate)
+                    
+                    // remove any data from the list
+                    $tbody.html("");
+
+                    // call function
+                    ufodata(combinedfilter);
+                }
+
+
      
         // singles
         if (inputshape.length !== 0) {
@@ -133,11 +253,41 @@ var ufodata = (datainput) => {
                 ufodata(combinedfilter);
             }
         
-        
+        if (inputstate.length !== 0) {
 
+            var combinedfilter = tableData.filter(tableData => tableData.state === inputstate)
+                
+                // remove any data from the list
+                $tbody.html("");
 
+                // call function
+                ufodata(combinedfilter);
+            }
 
-        
+        if (inputcity.length !== 0) {
+
+            var combinedfilter = tableData.filter(tableData => tableData.city === inputcity)
+                
+                // remove any data from the list
+                $tbody.html("");
+
+                // call function
+                ufodata(combinedfilter);
+            }        
+
+        if (inputdate.length !== 0) {
+
+            var combinedfilter = tableData.filter(tableData => tableData.datetime === inputdate)
+                
+                // remove any data from the list
+                $tbody.html("");
+
+                // call function
+                ufodata(combinedfilter);
+            }
+                
+                
+
 
         // // remove any data from the list
         // $tbody.html("");
