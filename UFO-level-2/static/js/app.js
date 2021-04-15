@@ -48,72 +48,63 @@ var ufodata = (datainput) => {
         var inputcountry = usercountry.property("value").trim();
         var inputshape = usershape.property("value").trim();
         
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        // if (inputdate.length !== 0 || inputcity.length !== 0 
-        //     || inputstate.length !== 0 || inputcountry.length !== 0
-        //     || inputshape.length !== 0) {
-
-        //         var combinedfilter = tableData.filter(tableData => tableData.datetime === inputdate 
-        //             && tableData.city === inputcity && tableData.state === inputstate
-        //             && tableData.country === inputcountry && tableData.shape === inputshape
-        //             !== 0) 
-                    
-        //             // remove any data from the list
-        //             $tbody.html("");
-
-        //             // call function
-        //             ufodata(combinedfilter);
-        //         }
-
-        // else if (inputdate.length === 0 || inputcity.length !== 0 
-        //     || inputstate.length !== 0 || inputcountry.length !== 0
-        //     || inputshape.length !== 0) {
-
-        //         var combinedfilter = tableData.filter(tableData.city === inputcity && tableData.state === inputstate
-        //             && tableData.country === inputcountry && tableData.shape === inputshape
-        //             !== 0) 
-                    
-        //             // remove any data from the list
-        //             $tbody.html("");
-
-        //             // call function
-        //             ufodata(combinedfilter);
-        //         }
-            
-
-            
-        
-        
-        
         var filterdates = tableData.filter(tableData => tableData.datetime === inputdate);
+        var filterCities = tableData.filter(tableData => tableData.city === inputcity);
+        var filterstates = tableData.filter(tableData => tableData.state === inputstate);
+        var filtercountries = tableData.filter(tableData => tableData.country === inputcountry);
+        var filtershapes = tableData.filter(tableData => tableData.shape === inputshape);
+        
+        
+        if (inputdate.length !== 0 || inputcity.length !== 0 
+            || inputstate.length !== 0 || inputcountry.length !== 0
+            || inputshape.length !== 0) {
+
+                var combinedfilter = tableData.filter(tableData => tableData.datetime === inputdate 
+                    && tableData.city === inputcity && tableData.state === inputstate
+                    && tableData.country === inputcountry && tableData.shape === inputshape)
+                    
+                    // remove any data from the list
+                    $tbody.html("");
+
+                    // call function
+                    ufodata(combinedfilter);
+                }
+
+        else if (inputdate.length === 0 || inputcity.length !== 0 
+            || inputstate.length !== 0 || inputcountry.length !== 0
+            || inputshape.length !== 0) {
+
+                var combinedfilter = tableData.filter(tableData.city === inputcity && tableData.state === inputstate
+                    && tableData.country === inputcountry && tableData.shape === inputshape)
+                    
+                    // remove any data from the list
+                    $tbody.html("");
+
+                    // call function
+                    ufodata(combinedfilter);
+                }
+            
+
+            
+        
+        
+        
+        
+        
+        
+        
+
 
 
         
-        // var filterstates = tableData.filter(tableData => tableData.state === inputstate);
-        // var filtercountries = tableData.filter(tableData => tableData.country === inputcountry);
-        // var filtershapes = tableData.filter(tableData => tableData.shape === inputshape);
 
-        // remove any data from the list
-        $tbody.html("");
+        // // remove any data from the list
+        // $tbody.html("");
 
-        if(filterdates.length !== 0 ) {
-            var combinedfilter = filterdates.filter(filterdates => filterdates.city === inputcity);
+        // if(filterdates.length !== 0 ) {
+        //    ufodata(filterdates);
 
-            // if(combinedfilter.length !== 0 )
-
-            $tbody.html("");
-
-           ufodata(combinedfilter);
-
-        }
+        // }
     
         else {
                 $tbody.append("tr").append("td").text("No Sightings");
