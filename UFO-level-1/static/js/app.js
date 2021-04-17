@@ -50,8 +50,10 @@ var ufodata = (datainput) => {
         }
     
         else {
+            // remove any data from the list
+            $tbody.html("");
                 // ufodata(tableData);
-                $tbody.append("tr").append("td").text("No Sightings");
+            $tbody.append("tr").append("td").text("No Sightings");
             }
     }
 
